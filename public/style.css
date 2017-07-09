@@ -1,0 +1,155 @@
+
+  body {
+    width: 975px;
+    background-image: url('mysteryWord-background.jpg');
+    color: white;
+    margin-left: 20px;
+  }
+
+  h1 {
+    font-family: 'Frijole', cursive;
+    color: #0D7C0B;
+    text-align: center;
+    font-size: 45px;
+    text-shadow: 2px 2px white;
+    background-color: #303030;
+    margin: auto;
+    margin-top: 10px;
+    border: 3px solid #510AAC;
+    border-top-right-radius: 15%;
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  #guessCount {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 20px;
+    color: #ADADAD;
+    text-shadow: 2px 2px black;
+    text-align: center;
+    background-color: #303030;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: -6px;
+    border-top: 3px solid #510AAC;
+    border-left: 3px solid #510AAC;
+    border-right: 3px solid #510AAC;
+    border-top-right-radius: 15%;
+    border-top-left-radius: 15%;
+    z-index: 2;
+    position: relative;
+  }
+
+  #mysteryWord {
+    font-family: 'Luckiest Guy', cursive;
+    color: #08940C;
+    text-transform: capitalize;
+    text-shadow: .5px .5px white;
+    text-align: center;
+    background-color: #303030;
+    padding-top: 45px;
+    padding-bottom: 30px;
+    letter-spacing: 7px;
+    font-size: 40px;
+    width: 860px;
+    margin: auto;
+    border: 3px solid #510AAC;
+    border-radius: 15%;
+    z-index: 1;
+    position: relative;
+  }
+
+  #guess-box {
+    background-color: #303030;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border: 3px solid #510AAC;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+
+  #letter-prompt {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 20px;
+    text-align: center;
+    color: #ADADAD;
+    text-shadow: 2px 2px black;
+  }
+
+  #letter-input {
+    font-family: 'Luckiest Guy', cursive;
+    width: 50px;
+    height: 55px;
+    font-size: 30px;
+    color: #340873;
+    background-color: #858484;
+    border: 3px solid #51169D;
+    border-radius: 10%;
+    box-shadow: .5px .5px .5px white;
+    margin-left: 110px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  #letter-submit {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 16px;
+    text-shadow: .3px .3px white;
+    text-transform: capitalize;
+    color: #41137C;
+    background-color: #0F8C0C;
+    margin-left: 82px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    border: 2px solid #AFAFAF;
+    border-radius: 20px;
+  }
+
+  #letterbank {
+    border: 3px solid #510AAC;
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+    border-bottom-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    width: 800px;
+    margin: auto;
+    background-color: #303030;
+    padding-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  h4 {
+    text-align: center;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    color: #ADADAD;
+    text-shadow: 2px 2px black;
+  }
+
+  #alphabet {
+    font-family: 'Frijole', cursive;
+    font-size: 20px;
+    text-shadow: .5px .5px white;
+    color: #0DB911;
+    display: flex;
+    list-style: none;
+    margin-left: 14px;
+    letter-spacing: 7px;
+  }
