@@ -74,7 +74,21 @@
   app.post('/', function(req, res){
     letter = req.body.letterInput.toLowerCase();
     letterGuess(letter);
+    if (guessCount === 0) {
+      res.redirect('/lose');
+    }
+    if (mysteryWord == word) {
+      res.redirect('/win');
+    }
     res.render('index', {guessCount: guessCount, mysteryWord: mysteryWord, alphabet: alphabet})
+  })
+
+  app.get('/win', function(req, res){
+    res.render('win');
+  })
+
+  app.get('/lose', function(req, res){
+    res.render('lose', {mysteryWord: word})
   })
 
   app.listen(2002, function(){
