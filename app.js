@@ -54,7 +54,7 @@
   function letterGuess(req, res){
     if (word.indexOf(letter) == -1) {
       guessCount -=1;
-      // alphabet.splice(alphabet.indexOf(letter), 1, "?");
+      // alphabet.splice(alphabet.indexOf(letter), 1, "");
   }
 
   //If the user guesses a letter correctly, the mysteryWord will update with the appropriate letter now filled in

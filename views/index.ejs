@@ -12,11 +12,22 @@
       <h1>??? Mystery Word ???</h1>
 
       <div id="container">
+
         <div id="header">
           <p id="guessCount">You have <span><%= guessCount %></span> guesses left</p>
           <div id="word-background">
             <p id="mysteryWord"> <%= mysteryWord %></p>
           </div>
+        </div>
+
+
+        <div id="letterbank">
+          <h4>Letterbank</h4>
+          <ul id="alphabet">
+          <% alphabet.forEach(function(character){ %>
+            <li><%= character %></li>
+          <% }) %>
+          </ul>
         </div>
 
         <form action="/" method="POST" id="guess-box">
@@ -27,16 +38,7 @@
           <br>
         </form>
 
-        <div id="letterbank">
-          <h4>LETTERBANK</h4>
-          <ul id="alphabet">
-          <% alphabet.forEach(function(character){ %>
-            <li><%= character %></li>
-          <% }) %>
-          </ul>
-        </div>
       </div>
 
-      <script src="main.js"></script>
     </body>
   </html>
