@@ -4,6 +4,9 @@
   const bodyParser = require('body-parser');
   const ejs = require('ejs');
   const fs = require('fs');
+  const session = require('express-session');
+  const validator = require('express-validator');
+
   const app = express();
 
   const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n");
@@ -23,6 +26,11 @@
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false}));
 
+  //Validation
+  app.use(validator());
+
+  //Sessions
+  app.use(session({secret: '88**88**88**88**', saveUninitialized: false, resave: false}));
 
   //Global Variables
 
@@ -30,7 +38,7 @@
   let guessCount = 8;
 
   //A var which pulls a word from the array of words for the user to guess
-  var word = words[Math.floor(Math.random() *  words.length)];
+  let word = words[Math.floor(Math.random() *  words.length)];
 
   //An array which splits the users mystery word into each individual letter
   let mysteryLetter = [];
@@ -54,7 +62,9 @@
   function letterGuess(req, res){
     if (word.indexOf(letter) == -1) {
       guessCount -=1;
-      // alphabet.splice(alphabet.indexOf(letter), 1, "");
+    // if (alphabet.includes(letter) == true) {
+    //   alphabet.splice(alphabet.indexOf(letter), 1, "");
+    // }
   }
 
   //If the user guesses a letter correctly, the mysteryWord will update with the appropriate letter now filled in
@@ -68,11 +78,15 @@
 
   //GET and POST
   app.get('/', function (req, res){
-    res.render('index', {guessCount: guessCount, mysteryWord: mysteryWord, alphabet: alphabet})
+    res.render('index', {guessCount: guessCount, mysteryWord: mysteryWord, alphabet: alphabet, success: false, errors: req.session.errors});
+    req.session.errors = null;
   })
 
   app.post('/', function(req, res){
     letter = req.body.letterInput.toLowerCase();
+    if (letter.length > 1) {
+      return false;
+    } else {
     letterGuess(letter);
     if (guessCount === 0) {
       res.redirect('/lose');
@@ -80,17 +94,24 @@
     if (mysteryWord == word) {
       res.redirect('/win');
     }
-    res.render('index', {guessCount: guessCount, mysteryWord: mysteryWord, alphabet: alphabet})
-  })
+    req.checkBody('letterInput', 'You must submit a letter').isAlpha();
+    let errors = req.getValidationResult();
+    if (errors) {
+      req.session.errors = errors;
+    res.render('index', {guessCount: guessCount, mysteryWord: mysteryWord, alphabet: alphabet, success: false, errors: req.session.errors});
+    req.session.errors = null;
+    }
+    }
+    })
 
   app.get('/win', function(req, res){
-    res.render('win');
+    res.render('win', {mysteryWord: word})
   })
 
   app.get('/lose', function(req, res){
     res.render('lose', {mysteryWord: word})
   })
 
-  app.listen(2002, function(){
+  app.listen(process.env.PORT || 2002, function(){
   console.log('Listening on Port 2002')
   })
