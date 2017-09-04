@@ -112,6 +112,10 @@
     res.render('lose', {mysteryWord: word})
   })
 
-  app.listen(process.env.PORT || 2002, function(){
-  console.log('Listening on Port 2002')
-  })
+  app.listen(process.env.PORT || 2002, function() {
+  console.log(
+    'Express server listening on port %d in %s mode',
+    this.address().port,
+    app.settings.env
+    );
+  });
