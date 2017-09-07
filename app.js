@@ -9,7 +9,7 @@
 
   const app = express();
 
-  const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n");
+  const words = fs.readFileSync("./words", "utf-8").toLowerCase().split("\n");
 
 
   //Middleware
