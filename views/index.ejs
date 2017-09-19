@@ -11,31 +11,32 @@
     <body>
       <h1>??? Mystery Word ???</h1>
 
-      <div id="container">
+      <div class="container">
 
-        <div id="header">
-          <p id="guessCount">You have <span><%= guessCount %></span> guesses left</p>
-          <div id="word-background">
-            <p id="mysteryWord"> <%= mysteryWord %></p>
+        <div class="header">
+          <p class="guessCount">You have <span><%= guessCount %></span> guesses left</p>
+          <div class=="word-background">
+            <p class="mysteryWord"> <%= mysteryWord %></p>
           </div>
         </div>
 
-
-        <div id="letterbank">
+        <div class="letterbank">
           <h4>Letterbank</h4>
-          <ul id="alphabet">
+          <ul class="alphabet">
           <% alphabet.forEach(function(character){ %>
             <li><%= character %></li>
           <% }) %>
           </ul>
         </div>
 
-        <form action="/" method="POST" id="guess-box">
-          <p id="letter-prompt">Enter a letter to guess here:</p>
-          <input type="text" id="letter-input" name="letterInput" autocomplete="off">
-          <br>
-          <button type="submit" id="letter-submit">Enter a Letter</button>
-          <br>
+        <form action="/" method="POST" class="guess-box">
+          <div class="guess">
+            <p class="letter-prompt">Enter a letter to guess here:</p>
+            <input type="text" class="letter-input" name="letterInput" autocomplete="off">
+            <br>
+            <button type="submit" class="letter-submit">Enter a Letter</button>
+            <br>
+          </div>
         </form>
 
       </div>

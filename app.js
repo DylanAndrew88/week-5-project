@@ -46,7 +46,7 @@
   let letter = "";
 
   //An array which contains every letter of the alphabet
-  let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let alphabet = [];
 
 
   //When the user clicks the "play now" button, that initates the game and selects a random word for the player to guess
@@ -62,10 +62,7 @@
   function letterGuess(req, res){
     if (word.indexOf(letter) == -1) {
       guessCount -=1;
-    // if (alphabet.includes(letter) == true) {
-    //   alphabet.splice(alphabet.indexOf(letter), 1, "");
-    // }
-  }
+    }
 
   //If the user guesses a letter correctly, the mysteryWord will update with the appropriate letter now filled in
   for(i=0; i<word.length; i++){
@@ -88,6 +85,7 @@
       return false;
     } else {
     letterGuess(letter);
+    alphabet.push(letter + ', ');
     if (guessCount === 0) {
       res.redirect('/lose');
     }
