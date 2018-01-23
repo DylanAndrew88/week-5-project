@@ -59,7 +59,7 @@
 
   //When the user guesses a letter, there should be a check to make sure it is only one character long and is a letter of the alphabet
   //After the user guesses a letter, make sure it leaves the word bank so they don't guess it again
-  function letterGuess(req, res){
+  function letterGuess(){
     if (word.indexOf(letter) == -1) {
       guessCount -=1;
     }
@@ -77,7 +77,15 @@
   app.get('/', function (req, res){
     res.render('index', {guessCount: guessCount, mysteryWord: mysteryWord, alphabet: alphabet, success: false, errors: req.session.errors});
     req.session.errors = null;
-  })
+  });
+
+  app.get('/win', function(req, res){
+    res.render('win', {mysteryWord: word})
+  });
+
+  app.get('/lose', function(req, res){
+    res.render('lose', {mysteryWord: word})
+  });
 
   app.post('/', function(req, res){
     letter = req.body.letterInput.toLowerCase();
@@ -100,15 +108,7 @@
     req.session.errors = null;
     }
     }
-    })
-
-  app.get('/win', function(req, res){
-    res.render('win', {mysteryWord: word})
-  })
-
-  app.get('/lose', function(req, res){
-    res.render('lose', {mysteryWord: word})
-  })
+  });
 
   app.listen(process.env.PORT || 2002, function() {
   console.log(
