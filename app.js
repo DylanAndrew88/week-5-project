@@ -10,6 +10,7 @@
   const app = express();
 
   const words = fs.readFileSync("./words", "utf-8").toLowerCase().split("\n");
+  const alphaCheck = /^[A-Za-z]+$/;
 
 
   //Middleware
@@ -89,7 +90,10 @@
 
   app.post('/', function(req, res){
     letter = req.body.letterInput.toLowerCase();
-    if (letter.length > 1) {
+    if (alphaCheck.test(letter) == false) {
+      return false
+    }
+    if (letter.length > 1 || letter == '') {
       return false;
     } else {
     letterGuess(letter);

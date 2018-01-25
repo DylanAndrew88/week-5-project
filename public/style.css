@@ -148,13 +148,14 @@
     font-size: 30px;
     color: #340873;
     background-color: #A4A4A4;
-    border: 5px solid #0B5E0A;
+    border: 5px solid #118A0F;
     border-radius: 10%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
     text-align: center;
     display: block;
+    outline: none;
   }
 
   .letter-submit {
@@ -177,6 +178,7 @@
     border-radius: 10px;
     cursor: pointer;
     display: block;
+    outline: none;
   }
 
   .letter-submit:hover {
