@@ -160,12 +160,12 @@
 
   .letter-submit {
     font-family: 'Bangers', cursive;
-    font-size: 18px;
+    font-size: 23px;
     text-shadow: .3px .3px white;
     text-transform: capitalize;
     color: #41137C;
     background-color: #0C860D;
-    width: 115px;
+    width: 85px;
     margin-top: -5px;
     margin-bottom: 15px;
     margin-left: auto;
@@ -179,6 +179,7 @@
     cursor: pointer;
     display: block;
     outline: none;
+    letter-spacing: 1px;
   }
 
   .letter-submit:hover {
