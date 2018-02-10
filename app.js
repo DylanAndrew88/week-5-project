@@ -89,10 +89,13 @@
   });
 
   app.post('/', function(req, res){
+    //Convert the users input to lowercase
     letter = req.body.letterInput.toLowerCase();
+    //Check if the users input is a letter a-z
     if (alphaCheck.test(letter) == false) {
       return false
     }
+    //Check that the letter is only one character long, or if there's no entry at all
     if (letter.length > 1 || letter == '') {
       return false;
     } else {
