@@ -2,8 +2,9 @@
   body {
     width: 100vw;
     background-image: url('mysteryWord-background.jpg');
-    background-position: right top;
-    background-attachment: fixed;
+    background-position: left top;
+    background-size: cover;
+    background-color: silver;
     color: white;
   }
 
